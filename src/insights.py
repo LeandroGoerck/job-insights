@@ -1,3 +1,4 @@
+from curses.ascii import isdigit
 from src.jobs import read
 
 
@@ -104,6 +105,16 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
+    jobs_list = read(path)
+
+    max_salary = 0
+    for job in jobs_list:
+        if job["max_salary"].isnumeric():
+            current_max_salary = int(job["max_salary"])
+            if current_max_salary > max_salary:
+                max_salary = current_max_salary
+
+    return max_salary
     pass
 
 
