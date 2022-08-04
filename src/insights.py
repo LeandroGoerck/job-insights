@@ -133,7 +133,7 @@ def get_min_salary(path):
     """
     jobs_list = read(path)
 
-    min_salary = get_max_salary(path)
+    min_salary = 99999
     for job in jobs_list:
         if job["min_salary"].isnumeric():
             current_min_salary = int(job["min_salary"])
